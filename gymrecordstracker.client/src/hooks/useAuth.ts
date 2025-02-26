@@ -1,15 +1,13 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { useUserStore } from "../stores/userStore";
 import { LoginUserDTO, AddUserDTO } from "../interfaces/userInterfaces";
 
 export const useAuth = () => {
     const { user, loading, error, getUser, login, register, logout } = useUserStore();
 
-    const loadUser = useCallback(getUser, []);
-
     useEffect(() => {
-        loadUser();
-    }, [loadUser]);
+        getUser();
+    }, [getUser]);
 
     const handleLogin = async (credentials: LoginUserDTO) => {
         await login(credentials);

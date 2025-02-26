@@ -66,12 +66,12 @@ namespace GymRecordsTracker.Server
             // Adding CORS for using front client
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
-                {
-                    policy.AllowAnyOrigin()
-                           .AllowAnyHeader()
-                           .AllowAnyMethod();
-                });
+                options.AddPolicy("AllowAll",
+                builder => builder
+                    .WithOrigins("https://localhost:5173") // Ваш клієнтський домен
+                    .AllowCredentials()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
             });
 
             builder.Services.AddDbContext<AppDbContext>(options =>
@@ -122,7 +122,7 @@ namespace GymRecordsTracker.Server
 
             var app = builder.Build();
 
-            app.UseCors();
+            app.UseCors("AllowAll");
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

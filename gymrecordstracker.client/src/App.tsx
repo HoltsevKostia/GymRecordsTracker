@@ -4,28 +4,30 @@ import { useUserStore } from './stores/userStore';
 import AuthPage from './pages/AuthPage';
 import ProfilePage from './pages/ProfilePage';
 import './App.css'
+import HomePage from './pages/HomePage';
+import { useAuth } from './hooks/useAuth';
 
 function PrivateRoute({ element }: { element: JSX.Element }) {
-    const user = useUserStore((state) => state.user);
+    const { user } = useAuth();
     return user ? element : <Navigate to="/auth" replace />;
 }
 
 function AuthAccess({ element }: { element: JSX.Element }) {
-    const user = useUserStore((state) => state.user);
+    const { user } = useAuth();
     return user ? <Navigate to="/" replace /> : element;
 }
 function App() {
-    const { getUser } = useUserStore();
+    const { user } = useAuth();
 
     useEffect(() => {
-        getUser();
+        user;
     }, []);
 
     return (
         <Routes>
             <Route path="/auth" element={<AuthAccess element={<AuthPage />} />} />
             <Route path="/profile" element={<PrivateRoute element={<ProfilePage />} />} />
-            {/*<Route path="/" element={<PrivateRoute element={<Home />} />} />*/}
+            <Route path="/" element={<PrivateRoute element={<HomePage />} />} />
         </Routes>
     );
 }

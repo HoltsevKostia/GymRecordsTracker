@@ -1,11 +1,9 @@
 import { Container, Box, Typography, Button } from "@mui/material";
-import { useUserStore } from "../stores/userStore";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
-    const user = useUserStore((state) => state.user);
-    const { handleLogout } = useAuth();
+    const { handleLogout, user} = useAuth();
     const navigate = useNavigate();
 
     const logout = () => {

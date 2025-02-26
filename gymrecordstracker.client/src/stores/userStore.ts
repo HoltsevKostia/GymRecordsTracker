@@ -35,7 +35,8 @@ export const useUserStore = create<UserState>((set) => ({
     login: async (credentials) => {
         set({ loading: true, error: null });
         try {
-            const userData = await userApi.loginUser(credentials);
+            await userApi.loginUser(credentials);
+            const userData = await userApi.getProfile();
             set({ user: userData });
         } catch (error) {
             set({ error: "Wrong email or password" });
