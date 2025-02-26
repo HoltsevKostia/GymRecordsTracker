@@ -26,7 +26,7 @@ export const useUserStore = create<UserState>((set) => ({
             const userData = await userApi.getProfile();
             set({ user: userData });
         } catch (error) {
-            set({ error: "Помилка при завантаженні профілю" });
+            set({ user: null });
         } finally {
             set({ loading: false });
         }
@@ -38,7 +38,7 @@ export const useUserStore = create<UserState>((set) => ({
             const userData = await userApi.loginUser(credentials);
             set({ user: userData });
         } catch (error) {
-            set({ error: "Невірний логін або пароль" });
+            set({ error: "Wrong email or password" });
         } finally {
             set({ loading: false });
         }
@@ -50,7 +50,7 @@ export const useUserStore = create<UserState>((set) => ({
             const newUser = await userApi.registerUser(user);
             set({ user: newUser });
         } catch (error) {
-            set({ error: "Помилка при реєстрації" });
+            set({ error: "Email or username is already taken" });
         } finally {
             set({ loading: false });
         }
@@ -62,7 +62,7 @@ export const useUserStore = create<UserState>((set) => ({
             await userApi.logoutUser();
             set({ user: null });
         } catch (error) {
-            set({ error: "Помилка при виході" });
+            set({ error: "Loguot error" });
         } finally {
             set({ loading: false });
         }

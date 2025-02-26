@@ -2,8 +2,8 @@ import axios from 'axios';
 import { handleApiError } from '../utils/errorHandling';
 
 const axiosInstance = axios.create({
-    baseURL: "https://localhost:7101",
-    headers: { "Content-Type": "application/json" },
+    baseURL: "https://localhost:7180",
+    headers: { "Content-Type": "application/json;" },
 });
 
 axiosInstance.interceptors.response.use(

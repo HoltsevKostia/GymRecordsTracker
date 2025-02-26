@@ -13,7 +13,7 @@ const registerSchema = yup.object().shape({
 });
 
 export default function RegisterForm() {
-    const { handleRegister, loading } = useAuth();
+    const { handleRegister, loading, error } = useAuth();
 
     const {
         control,
@@ -43,6 +43,7 @@ export default function RegisterForm() {
             <FormInput name="password" control={control} label="Password" type="password" errors={errors} />
 
             {errors.root && <Alert severity="error">{errors.root.message}</Alert>}
+            {error && <Alert severity="error">{error}</Alert>}
 
             <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }} disabled={loading}>
                 Register

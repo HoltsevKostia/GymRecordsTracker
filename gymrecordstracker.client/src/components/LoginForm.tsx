@@ -11,7 +11,7 @@ const loginSchema = yup.object().shape({
 });
 
 export default function LoginForm() {
-    const { handleLogin, loading } = useAuth();
+    const { handleLogin, loading, error } = useAuth();
 
     const {
         control,
@@ -41,6 +41,7 @@ export default function LoginForm() {
             <FormInput name="password" control={control} label="Password" type="password" errors={errors} />
 
             {errors.email && <Alert severity="error">{errors.email.message}</Alert>}
+            {error && <Alert severity="error">{error}</Alert>}
 
             <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }} disabled={loading}>
                 Login
