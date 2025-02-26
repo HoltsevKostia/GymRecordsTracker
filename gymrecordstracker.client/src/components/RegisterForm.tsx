@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { Box, Button, Alert, Typography } from "@mui/material";
 import FormInput from "./ui-ux/formInput";
 import { useAuth } from "../hooks/useAuth";
-import React from "react";
 
 
 const registerSchema = yup.object().shape({
@@ -35,7 +34,7 @@ export default function RegisterForm() {
 
     return (
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" gutterBottom color="textPrimary">
                 Register
             </Typography>
 

@@ -31,8 +31,9 @@ export default function LoginForm() {
     };
 
     return (
-        <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            <Typography variant="h5" gutterBottom>
+        <Box
+            component="form" onSubmit={handleSubmit(onSubmit)}>
+            <Typography variant="h5" gutterBottom color="textPrimary">
                 Login
             </Typography>
 

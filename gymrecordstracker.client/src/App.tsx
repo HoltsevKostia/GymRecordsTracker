@@ -3,7 +3,7 @@ import { JSX, useEffect } from 'react';
 import { useUserStore } from './stores/userStore';
 import AuthPage from './pages/AuthPage';
 import ProfilePage from './pages/ProfilePage';
-
+import './App.css'
 
 function PrivateRoute({ element }: { element: JSX.Element }) {
     const user = useUserStore((state) => state.user);

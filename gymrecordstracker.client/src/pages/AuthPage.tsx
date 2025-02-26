@@ -8,10 +8,10 @@ export default function AuthPage() {
 
     return (
         <Container maxWidth="xs">
-            <Box sx={{ mt: 8, p: 3, borderRadius: 2, boxShadow: 3, textAlign: "center" }}>
+            <Box sx={{ mt: 8, p:3, borderRadius: 2, boxShadow: 3, textAlign: "center", bgcolor: "whitesmoke" }}>
                 {isLogin ? <LoginForm /> : <RegisterForm />}
 
-                <Typography variant="body2" sx={{ mt: 2 }}>
+                <Typography variant="body2" color="textPrimary" sx={{ mt: 2 }}>
                     {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
                     <Button variant="text" onClick={() => setIsLogin(!isLogin)}>
                         {isLogin ? "Register" : "Login"}
