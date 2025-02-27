@@ -1,47 +1,37 @@
 import { Link, Outlet } from "react-router-dom";
 import { useUserStore } from "../stores/userStore";
+import { AppBar, Toolbar, Typography, Button, Container, Box } from "@mui/material";
 
 export default function Layout() {
-    const { user, logout } = useUserStore();
+    const { user } = useUserStore();
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-            {/* Header Section */}
-            <header style={{ backgroundColor: "#333", padding: "10px", color: "#fff", textAlign: "center" }}>
-                <nav
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "10px",
-                        background: "#282c34",
-                        color: "white"
-                    }}
-                >
-                    {/* Main Page Link */}
-                    <Link to="/" style={{ color: "white", textDecoration: "none" }}>Main</Link>
-                    {/* User Authentication Controls */}
-                    {user ? (
-                        <div style={{ display: "flex", alignItems: "center" }}> { }
-                            <Link to="/profile" style={{ color: "white", textDecoration: "none" }}>{user.username}</Link>
-                            <button onClick={logout} style={{ marginLeft: "10px" }}>Logout</button>
-                        </div>
-                    ) : (
-                        <Link to="/login" style={{ color: "white", textDecoration: "none" }}>Log in</Link>
-                    )}
-                </nav>
+        <div className="layout">
+            {/* Header */}
+            <AppBar position="sticky" className="header">
+                <Toolbar className="toolbar">
+                    <Typography variant="h6" className="logo">
+                        Gym Progress Tracker
+                    </Typography>
+                    <Box className="nav-buttons">
+                        <Button color="inherit" component={Link} to="/" sx={{ color: "white", "&:hover": { color: "white", bgcolor: "#242424" },}}>
+                            Main
+                        </Button>
+                        {user && (
+                            <Button color="inherit" component={Link} to="/" sx={{ color: "white", "&:hover": { color: "white", bgcolor: "#242424" }, }}>
+                                Profile
+                            </Button>
+                            )}
+                        </Box>
+                </Toolbar>
+            </AppBar>
 
-            </header>
-            {/* Main Content Section */}
-            <main style={{ display: "flex", justifyContent: "center", alignItems: "center", flexGrow: 1, padding: "20px" }}>
-                <div style={{ maxWidth: "800px", textAlign: "center", width: "100%" }}>
+            {/* Main Content */}
+            <main className="main-content">
+                <Container maxWidth="sm">
                     <Outlet />
-                </div>
+                </Container>
             </main>
-            {/* Footer Section */}
-            <footer style={{ backgroundColor: "#333", padding: "10px", color: "#fff", textAlign: "center" }}>
-                <p>© 2024 My Application. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

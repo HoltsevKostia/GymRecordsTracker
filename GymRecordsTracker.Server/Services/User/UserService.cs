@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using GymProgressTracker.Server.Models.Domain;
 using GymProgressTracker.Server.Models.DTO.User;
 using GymProgressTracker.Server.Repositories.User;
+using GymRecordsTracker.Server.Models.DTO.User;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -16,6 +18,21 @@ namespace GymProgressTracker.Server.Services.User
             _userRepository = userRepository;
             _mapper = mapper;
             _tokenGenerator = tokenGenerator;
+        }
+
+        public async Task<bool> DeleteUserAsync(int userId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return false;
+            }
+            /*
+            await _workoutRepository.DeleteWhereAsync(w => w.UserId == userId);
+            await _progressRepository.DeleteWhereAsync(p => p.UserId == userId);
+            */
+            await _userRepository.DeleteAsync(user);
+            return true;
         }
 
         public async Task<UserDTO?> GetUserByIdAsync(int id)
@@ -51,6 +68,11 @@ namespace GymProgressTracker.Server.Services.User
             {
                 return null;
             }
+            var isUsernameTaken = await _userRepository.IsUsernameTaken(userDTO.Username);
+            if (isUsernameTaken)
+            {
+                return null;
+            }
 
             var user = _mapper.Map<Models.Domain.User>(userDTO);
             user.Password = HashPassword(userDTO.Password);
@@ -62,5 +84,12 @@ namespace GymProgressTracker.Server.Services.User
 
             return (token, userDTOResult);
         }
+
+        public async Task<bool> UpdateEmailAsync(UpdateUserDTO updateUserDTO)
+        {
+            return await _userRepository.UpdateEmailAsync(updateUserDTO.Id, updateUserDTO.Email);
+        }
+
+         
     }
 }

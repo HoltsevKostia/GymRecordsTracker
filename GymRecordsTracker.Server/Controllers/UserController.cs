@@ -6,6 +6,7 @@ using GymProgressTracker.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using GymRecordsTracker.Server.Models.DTO.User;
 
 namespace GymProgressTracker.Server.Controllers
 {
@@ -33,7 +34,7 @@ namespace GymProgressTracker.Server.Controllers
 
             SetAuthCookie(result.Value.Token);
 
-            return Ok(new { User = result.Value.User });
+            return Ok(result.Value.User);
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace GymProgressTracker.Server.Controllers
 
             SetAuthCookie(result.Value.Token);
 
-            return Ok(new {User =  result.Value.User});
+            return Ok(result.Value.User);
         }
 
         [Authorize]
@@ -103,6 +104,37 @@ namespace GymProgressTracker.Server.Controllers
             }
 
             return Ok(user);
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("update-email")]
+        public async Task<IActionResult> UpdateEmail([FromBody] UpdateUserDTO updateUserDTO)
+        {
+            var success = await _userService.UpdateEmailAsync(updateUserDTO);
+
+            if (!success)
+            {
+                return BadRequest("Email is already taken or user not found.");
+            }
+
+            return Ok(new { success = true, message = "Email updated successfully." });
+        }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("delete-account")]
+        public async Task<IActionResult> DeleteAccount()
+        {
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+            var success = await _userService.DeleteUserAsync(userId);
+
+            if (!success)
+            {
+                return NotFound("User not found.");
+            }
+
+            return Ok(new { success = true, message = "Account deleted successfully." });
         }
 
         private void SetAuthCookie(string token)

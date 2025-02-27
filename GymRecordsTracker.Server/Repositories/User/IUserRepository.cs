@@ -7,5 +7,7 @@ namespace GymProgressTracker.Server.Repositories.User
     {
         Task<Models.Domain.User> GetByEmailAndPassword(string email, string password);
         Task<bool> IsEmailTaken(string email);
+        Task<bool> IsUsernameTaken(string username);
+        Task<bool> UpdateEmailAsync(int userId, string newEmail);
     }
 }
