@@ -17,49 +17,49 @@ interface UserState {
 
 export const useUserStore = create<UserState>((set) => ({
     user: null,
-    loading: false,
+    loading: true,
     error: null,
 
     getUser: async () => {
-        set({ loading: true, error: null });
-        try {
-            const userData = await userApi.getProfile();
+        set({ loading: true });
+        try {         
+            const userData = await userApi.getUser();
             set({ user: userData });
         } catch (error) {
-            set({ user: null });
+            set({ user: null, error: "You need to authorize" });
         } finally {
             set({ loading: false });
         }
     },
 
-    login: async (credentials) => {
-        set({ loading: true, error: null });
+    login: async (credentials) => {     
         try {
-            await userApi.loginUser(credentials);
-            const userData = await userApi.getProfile();
+            set({ loading: true });
+            const userData = await userApi.loginUser(credentials);
             set({ user: userData });
         } catch (error) {
-            set({ error: "Wrong email or password" });
+            set({ user: null, error: "Wrong email or password" });
         } finally {
             set({ loading: false });
         }
     },
 
-    register: async (user) => {
-        set({ loading: true, error: null });
+    register: async (user) => {    
         try {
-            const newUser = await userApi.registerUser(user);
-            set({ user: newUser });
+            set({ loading: true });
+            const userData = await userApi.registerUser(user);
+            set({ user: userData });
         } catch (error) {
-            set({ error: "Email or username is already taken" });
+            set({ user: null, error: "Email or username is already taken" });
         } finally {
             set({ loading: false });
         }
     },
 
     logout: async () => {
-        set({ loading: true, error: null });
+        
         try {
+            set({ loading: true});
             await userApi.logoutUser();
             set({ user: null });
         } catch (error) {

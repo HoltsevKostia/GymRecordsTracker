@@ -3,7 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box, Button, Alert, Typography } from "@mui/material";
 import FormInput from "./ui-ux/formInput";
-import { useAuth } from "../hooks/useAuth";
+import { useUserStore } from "../stores/userStore";
+
 
 
 const registerSchema = yup.object().shape({
@@ -13,7 +14,7 @@ const registerSchema = yup.object().shape({
 });
 
 export default function RegisterForm() {
-    const { handleRegister, loading, error } = useAuth();
+    const { register, loading, error } = useUserStore();
 
     const {
         control,
@@ -26,7 +27,7 @@ export default function RegisterForm() {
 
     const onSubmit = async (data: any) => {
         try {
-            await handleRegister(data);
+            await register(data);
         } catch {
             setError("root", { message: "Registration failed. The email may already be in use." });
         }

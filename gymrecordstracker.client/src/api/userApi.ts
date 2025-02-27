@@ -17,7 +17,7 @@ export const userApi = {
         return data;
     },
 
-    async getProfile(): Promise<UserDTO> {
+    async getUser(): Promise<UserDTO> {
         const { data } = await api.get("/user/profile");
         return data;
     }

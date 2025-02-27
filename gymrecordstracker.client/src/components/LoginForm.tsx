@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box, Button, Alert, Typography } from "@mui/material";
 import FormInput from "./ui-ux/formInput";
-import { useAuth } from "../hooks/useAuth";
+import { useUserStore } from "../stores/userStore";
 
 const loginSchema = yup.object().shape({
     email: yup.string().email("Invalid email format").required("Email is required"),
@@ -11,7 +11,7 @@ const loginSchema = yup.object().shape({
 });
 
 export default function LoginForm() {
-    const { handleLogin, loading, error } = useAuth();
+    const { login, loading, error } = useUserStore();
 
     const {
         control,
@@ -24,7 +24,7 @@ export default function LoginForm() {
 
     const onSubmit = async (data: any) => {
         try {
-            await handleLogin(data);
+            await login(data);
         } catch {
             setError("email", { message: "Wrong email or password." });
         }

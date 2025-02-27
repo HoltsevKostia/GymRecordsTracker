@@ -1,13 +1,13 @@
 import { Container, Box, Typography, Button } from "@mui/material";
-import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../stores/userStore";
 
 export default function ProfilePage() {
-    const { handleLogout, user} = useAuth();
+    const { user, logout } = useUserStore();
     const navigate = useNavigate();
 
-    const logout = () => {
-        handleLogout();
+    const handlelogout = () => {
+        logout();
         navigate("/auth");
     };
 
@@ -25,7 +25,7 @@ export default function ProfilePage() {
                     color="secondary"
                     fullWidth
                     sx={{ mt: 3 }}
-                    onClick={logout}
+                    onClick={handlelogout}
                 >
                     Logout
                 </Button>
