@@ -11,6 +11,7 @@ using GymProgressTracker.Server.Database;
 using GymProgressTracker.Server.Services.User;
 using GymProgressTracker.Server.Mapping;
 using GymProgressTracker.Server.Services;
+using MyVibe.Server.Mapping;
 
 namespace GymRecordsTracker.Server
 {
@@ -83,6 +84,7 @@ namespace GymRecordsTracker.Server
 
             //Adding automappers
             builder.Services.AddAutoMapper(typeof(UserMapper));
+            builder.Services.AddAutoMapper(typeof(FavoriteMapper));
 
             //Add JWT settings
             var jwtSettings = builder.Configuration.GetSection("JwtSettings");
