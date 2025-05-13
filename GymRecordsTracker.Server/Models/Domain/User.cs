@@ -12,6 +12,5 @@ namespace GymProgressTracker.Server.Models.Domain
         public string Password { get; set; } = string.Empty;
 
         public DateTime CreatedAt { get; set; }
-        public ICollection<Workout> Workouts { get; set; } = new List<Workout>();
     }
 }
