@@ -133,7 +133,7 @@ namespace GymProgressTracker.Server.Controllers
             {
                 return NotFound("User not found.");
             }
-
+            Response.Cookies.Delete("auth_token");
             return Ok(new { success = true, message = "Account deleted successfully." });
         }
 

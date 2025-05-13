@@ -25,5 +25,10 @@ export const userApi = {
     async updateUserEmail(user: UpdateUserEmailDTO): Promise<{ success: boolean }> {
         const { data } = await api.put("/user/update-email", user);
         return data;
+    },
+
+    async deleteUser(): Promise<{ success: boolean , message: string}> {
+        const { data } = await api.delete("/user/delete-account");
+        return data;
     }
 }

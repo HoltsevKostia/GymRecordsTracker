@@ -11,6 +11,7 @@ interface UserState {
     register: (user: AddUserDTO) => Promise<void>;
     updateUserEmail: (credentials: UpdateUserEmailDTO) => Promise<void>;
     logout: () => Promise<void>;
+    deleteUser: () => Promise<void>;
     setUser: (user: UserDTO | null) => void;
     setLoading: (loading: boolean) => void;
     setError: (error: string) => void;
@@ -37,7 +38,7 @@ export const useUserStore = create<UserState>((set) => ({
         try {
             set({ loading: true });
             const userData = await userApi.loginUser(credentials);
-            set({ user: userData });
+            set({ user: userData, error: null });
         } catch (error) {
             set({ user: null, error: "Wrong email or password" });
         } finally {
@@ -49,7 +50,7 @@ export const useUserStore = create<UserState>((set) => ({
         try {
             set({ loading: true });
             const userData = await userApi.registerUser(user);
-            set({ user: userData });
+            set({ user: userData, error: null });
         } catch (error) {
             set({ user: null, error: "Email or username is already taken" });
         } finally {
@@ -76,13 +77,24 @@ export const useUserStore = create<UserState>((set) => ({
     },
 
     logout: async () => {
-        
         try {
             set({ loading: true});
             await userApi.logoutUser();
             set({ user: null });
         } catch (error) {
             set({ error: "Loguot error" });
+        } finally {
+            set({ loading: false });
+        }
+    },
+
+    deleteUser: async () => {
+        try {
+            set({ loading: true });
+            await userApi.deleteUser();
+            set({ user: null });
+        } catch (error) {
+            set({ error: "Account deleting error" });
         } finally {
             set({ loading: false });
         }

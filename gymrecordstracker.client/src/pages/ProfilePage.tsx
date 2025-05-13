@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 export default function ProfilePage() {
-    const { user, logout, loading, updateUserEmail, error } = useUserStore();
+    const { user, logout, loading, updateUserEmail, deleteUser ,error } = useUserStore();
     const navigate = useNavigate();
 
     const handlelogout = () => {
@@ -22,6 +22,14 @@ export default function ProfilePage() {
         await updateUserEmail({ id: user.id, email: newEmail });
         if (!error) {
             setEmailUpdated(true);
+        }
+    };
+
+    const handleDeleteAccount = async () => {
+        const confirm = window.confirm("Are you sure you want to delete your account? This action is irreversible.");
+        if (confirm) {
+            await deleteUser();
+            navigate("/auth");
         }
     };
 
@@ -63,6 +71,16 @@ export default function ProfilePage() {
                 </Button>
 
                 <Button
+                    variant="outlined"
+                    color="error"
+                    fullWidth
+                    sx={{ mt: 2 }}
+                    onClick={handleDeleteAccount}
+                >
+                    Delete Account
+                </Button>
+
+                <Button
                     variant="contained"
                     color="secondary"
                     fullWidth
@@ -71,6 +89,7 @@ export default function ProfilePage() {
                 >
                     Logout
                 </Button>
+
             </Box>
         </Container>
     );
