@@ -6,7 +6,6 @@ import FormInput from "./ui-ux/formInput";
 import { useUserStore } from "../stores/userStore";
 
 
-
 const registerSchema = yup.object().shape({
     username: yup.string().min(3, "Username must be at least 3 characters").required("Username is required"),
     email: yup.string().email("Invalid email format").required("Email is required"),

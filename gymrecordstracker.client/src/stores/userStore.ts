@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { userApi } from '../api/userApi';
-import { UserDTO, LoginUserDTO, AddUserDTO } from '../interfaces/userInterfaces';
+import { UserDTO, LoginUserDTO, AddUserDTO, UpdateUserEmailDTO } from '../interfaces/userInterfaces';
 
 interface UserState {
     user: UserDTO | null;
@@ -9,6 +9,7 @@ interface UserState {
     getUser: () => Promise<void>;
     login: (credentials: LoginUserDTO) => Promise<void>;
     register: (user: AddUserDTO) => Promise<void>;
+    updateUserEmail: (credentials: UpdateUserEmailDTO) => Promise<void>;
     logout: () => Promise<void>;
     setUser: (user: UserDTO | null) => void;
     setLoading: (loading: boolean) => void;
@@ -51,6 +52,24 @@ export const useUserStore = create<UserState>((set) => ({
             set({ user: userData });
         } catch (error) {
             set({ user: null, error: "Email or username is already taken" });
+        } finally {
+            set({ loading: false });
+        }
+    },
+
+    updateUserEmail: async (credentials) => {
+        try {
+            set({ loading: true });
+            const result = await userApi.updateUserEmail(credentials);
+
+            if (result.success) {
+                const userData = await userApi.getUser();
+                set({ user: userData, error: null });
+            } else {
+                set({ error: "Email update failed" });
+            }
+        } catch (error) {
+            set({ error: "Wrong or taken email" });
         } finally {
             set({ loading: false });
         }

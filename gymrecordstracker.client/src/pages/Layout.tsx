@@ -18,7 +18,7 @@ export default function Layout() {
                             Main
                         </Button>
                         {user && (
-                            <Button color="inherit" component={Link} to="/" sx={{ color: "white", "&:hover": { color: "white", bgcolor: "#242424" }, }}>
+                            <Button color="inherit" component={Link} to="/profile" sx={{ color: "white", "&:hover": { color: "white", bgcolor: "#242424" }, }}>
                                 Profile
                             </Button>
                             )}
