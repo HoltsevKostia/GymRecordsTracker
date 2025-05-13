@@ -1,1 +1,1 @@
-# GymRecordsTracker
+# MyVibeApp
