@@ -21,6 +21,9 @@ namespace GymProgressTracker.Server.Controllers
             this._userService = userService;
         }
 
+        /// <summary>
+        /// Реєстрація користувача
+        /// </summary>
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] AddUserDTO userDTO)
@@ -81,6 +84,9 @@ namespace GymProgressTracker.Server.Controllers
             return Ok(result.Value.User);
         }
 
+        /// <summary>
+        /// Вихід з акаунту
+        /// </summary>
         [Authorize]
         [HttpPost]
         [Route("logout")]
@@ -90,6 +96,9 @@ namespace GymProgressTracker.Server.Controllers
             return Ok(new { success = true, message = "Logged out successfully" });
         }
 
+        /// <summary>
+        /// Отримати залогіненого користувача
+        /// </summary>
         [Authorize]
         [HttpGet]
         [Route("profile")]
@@ -106,6 +115,9 @@ namespace GymProgressTracker.Server.Controllers
             return Ok(user);
         }
 
+        /// <summary>
+        /// Змінити адресу електронної пошти
+        /// </summary>
         [Authorize]
         [HttpPut]
         [Route("update-email")]
@@ -121,6 +133,9 @@ namespace GymProgressTracker.Server.Controllers
             return Ok(new { success = true, message = "Email updated successfully." });
         }
 
+        /// <summary>
+        /// Видалити акаунт
+        /// </summary>
         [Authorize]
         [HttpDelete]
         [Route("delete-account")]
