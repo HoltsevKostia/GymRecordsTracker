@@ -27,10 +27,6 @@ namespace GymProgressTracker.Server.Services.User
             {
                 return false;
             }
-            /*
-            await _workoutRepository.DeleteWhereAsync(w => w.UserId == userId);
-            await _progressRepository.DeleteWhereAsync(p => p.UserId == userId);
-            */
             await _userRepository.DeleteAsync(user);
             return true;
         }
