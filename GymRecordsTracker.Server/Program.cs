@@ -12,6 +12,8 @@ using GymProgressTracker.Server.Services.User;
 using GymProgressTracker.Server.Mapping;
 using GymProgressTracker.Server.Services;
 using MyVibe.Server.Mapping;
+using MyVibe.Server.Repositories.Favorite;
+using MyVibe.Server.Services.Favorite;
 
 namespace GymRecordsTracker.Server
 {
@@ -81,6 +83,8 @@ namespace GymRecordsTracker.Server
             //Adding Repositories and Services
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            builder.Services.AddScoped<IFavoriteService, FavoriteService>();
 
             //Adding automappers
             builder.Services.AddAutoMapper(typeof(UserMapper));

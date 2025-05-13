@@ -1,6 +1,6 @@
 ﻿using MyVibe.Server.Models.DTO.Favorite;
 
-namespace MyVibe.Server.Services.User
+namespace MyVibe.Server.Services.Favorite
 {
     public interface IFavoriteService
     {

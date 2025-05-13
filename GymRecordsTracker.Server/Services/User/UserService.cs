@@ -84,8 +84,6 @@ namespace GymProgressTracker.Server.Services.User
         public async Task<bool> UpdateEmailAsync(UpdateUserDTO updateUserDTO)
         {
             return await _userRepository.UpdateEmailAsync(updateUserDTO.Id, updateUserDTO.Email);
-        }
-
-         
+        }       
     }
 }
