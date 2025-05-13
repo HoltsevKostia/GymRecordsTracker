@@ -11,7 +11,7 @@ export default function Layout() {
             <AppBar position="sticky" className="header">
                 <Toolbar className="toolbar">
                     <Typography variant="h6" className="logo">
-                        Gym Progress Tracker
+                        My Vibe
                     </Typography>
                     <Box className="nav-buttons">
                         <Button color="inherit" component={Link} to="/" sx={{ color: "white", "&:hover": { color: "white", bgcolor: "#242424" },}}>

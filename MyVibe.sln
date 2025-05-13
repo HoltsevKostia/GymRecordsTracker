@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymRecordsTracker.Server", "GymRecordsTracker.Server\GymRecordsTracker.Server.csproj", "{AB67399D-4BCB-463E-806F-97B9CB6C1FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyVibe.Server", "GymRecordsTracker.Server\MyVibe.Server.csproj", "{AB67399D-4BCB-463E-806F-97B9CB6C1FEF}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "gymrecordstracker.client", "gymrecordstracker.client\gymrecordstracker.client.esproj", "{DDC43692-CCFB-471C-AA4A-B07F79029450}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "myvibe.client", "gymrecordstracker.client\myvibe.client.esproj", "{DDC43692-CCFB-471C-AA4A-B07F79029450}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
