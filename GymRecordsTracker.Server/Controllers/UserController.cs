@@ -41,7 +41,7 @@ namespace GymProgressTracker.Server.Controllers
         }
 
         /// <summary>
-        /// Авторизація користувача
+        /// Авторизація користувача (детальний опис)
         /// </summary>
         /// <remarks>
         /// **Приклад запиту:**
