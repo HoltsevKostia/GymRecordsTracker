@@ -57,7 +57,7 @@ function App() {
                 location="bottom"
                 cookieName="my_vibe_consent"
                 style={{ background: "#2B373B" }}
-                buttonStyle={{ color: "#fff", backgroundColor: "#1976d2", fontSize: "14px" }}
+                buttonStyle={{ color: "#fff", backgroundColor: "#1976d2", fontSize: "14px"}}
                 buttonText="Accept"
                 enableDeclineButton={false}
                 contentStyle={{ marginRight: "12px" }}
