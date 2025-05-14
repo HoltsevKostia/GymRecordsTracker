@@ -6,8 +6,6 @@ export interface FavoriteDTO {
 }
 
 export interface AddFavoriteDTO {
-    userId: number;
     type: number;
     content: string;
-    createdAt: string;
 }

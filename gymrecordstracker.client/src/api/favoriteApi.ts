@@ -19,7 +19,7 @@ export const favoriteApi = {
     },
 
     async deleteFavoriteById(id: number): Promise<{ success: boolean; message: string }> {
-        const { data } = await api.delete(`/favorite/delete,${id}`);
+        const { data } = await api.delete(`/favorite/delete/${id}`);
         return data;
     }
 }
