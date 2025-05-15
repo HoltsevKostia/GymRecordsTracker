@@ -12,6 +12,21 @@ const registerSchema = yup.object().shape({
     password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
+/**
+ * RegisterForm — форма реєстрації нового користувача.
+ *
+ * @component
+ * @returns {JSX.Element} HTML-форма з полями Username, Email та Password.
+ *
+ * @example
+ * // Валідна реєстрація
+ * {
+ *   username: "testuser",
+ *   email: "test@example.com",
+ *   password: "123456"
+ * }
+ */
+
 export default function RegisterForm() {
     const { register, loading, error } = useUserStore();
 

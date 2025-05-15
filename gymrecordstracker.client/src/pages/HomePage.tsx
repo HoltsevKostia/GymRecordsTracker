@@ -5,6 +5,13 @@ import AddFavoriteForm from "../components/AddFavoriteForm";
 import { useFavoriteStore } from "../stores/favoriteStore";
 import { FavoriteCard } from "../components/ui-ux/favoriteCard";
 
+/**
+ * HomePage — головна сторінка додатку.
+ * Містить форму додавання улюбленого контенту та галерею всіх збережених елементів користувача.
+ *
+ * @returns {JSX.Element} Сторінка з формою та сіткою карток.
+ */
+
 export default function HomePage() {
     const { favorites, getAllFavorites, loading } = useFavoriteStore();
 

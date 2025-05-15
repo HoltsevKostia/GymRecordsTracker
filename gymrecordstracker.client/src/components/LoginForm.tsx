@@ -10,6 +10,20 @@ const loginSchema = yup.object().shape({
     password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
+/**
+ * LoginForm — форма для авторизації користувача.
+ *
+ * @component
+ * @returns {JSX.Element} HTML-форма з полями Email та Password.
+ *
+ * @example
+ * // Валідний логін
+ * {
+ *   email: "test@example.com",
+ *   password: "123456"
+ * }
+ */
+
 export default function LoginForm() {
     const { login, loading, error } = useUserStore();
 

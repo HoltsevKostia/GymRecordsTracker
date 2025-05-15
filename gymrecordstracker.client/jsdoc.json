@@ -1,0 +1,16 @@
+{
+  "source": {
+    "include": [ "src/components", "src/interfaces" ],
+    "includePattern": ".+\\.(ts|tsx)$"
+  },
+  "opts": {
+    "destination": "./jsdoc",
+    "recurse": true,
+    "template": "default"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false
+  }
+}

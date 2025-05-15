@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../stores/userStore";
 import { useState } from "react";
 
+/**
+ * ProfilePage — сторінка профілю користувача.
+ * Дозволяє переглядати та оновлювати email, а також видалити акаунт або вийти з системи.
+ *
+ * @returns {JSX.Element} UI профілю з діями користувача.
+ */
 
 export default function ProfilePage() {
     const { user, logout, loading, updateUserEmail, deleteUser ,error } = useUserStore();

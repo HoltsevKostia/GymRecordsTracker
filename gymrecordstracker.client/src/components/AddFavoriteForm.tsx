@@ -14,6 +14,12 @@ const favoriteSchema = yup.object().shape({
         .required("Type is required"),
 });
 
+/**
+ * AddFavoriteForm Ч форма дл€ додаванн€ нового улюбленого елемента (мем, зображенн€, цитата).
+ *
+ * @component
+ * @returns {JSX.Element} HTML-форма з полем дл€ вм≥сту та типу.
+ */
 
 export default function AddFavoriteForm() {
     const { addFavorite, loading, error } = useFavoriteStore();

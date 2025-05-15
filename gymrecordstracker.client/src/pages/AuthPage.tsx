@@ -3,6 +3,13 @@ import { Container, Box, Button, Typography } from "@mui/material";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 
+/**
+ * AuthPage — сторінка авторизації/реєстрації.
+ * Перемикає між LoginForm та RegisterForm в залежності від стану.
+ *
+ * @returns {JSX.Element} Сторінка з формами входу та реєстрації.
+ */
+
 export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
     return (

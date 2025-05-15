@@ -2,6 +2,14 @@ import { Card, CardActions, CardContent, CardMedia, IconButton, Typography } fro
 import { FavoriteDTO } from "../../interfaces/favoriteInterfaces";
 import { useFavoriteStore } from "../../stores/favoriteStore";
 
+/**
+ * Компонент для відображення однієї картки з улюбленим контентом (мем, зображення або цитата).
+ *
+ * @component
+ * @param {Object} props - Властивості компонента.
+ * @param {FavoriteDTO} props.favorite - Об'єкт улюбленого контенту, який потрібно відобразити.
+ * @returns {JSX.Element} Картка з контентом і кнопкою видалення.
+ */
 export function FavoriteCard({ favorite }: { favorite: FavoriteDTO }) {
     const { deleteFavorite } = useFavoriteStore();
 
