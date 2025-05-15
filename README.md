@@ -73,4 +73,4 @@ npm run storybook
 
 Цей проєкт використовує MIT License. Детальніше:
 * [MIT License](LICENSE)
-* [License-checker summary](gymrecordstracker.client/license-summary.md)
+* [License-checker summary](license-summary.txt)
