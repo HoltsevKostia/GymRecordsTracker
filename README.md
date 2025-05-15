@@ -61,3 +61,10 @@ npm run dev
 ## ✒️ API Documentation
 
 Swagger доступний після запуску за адресою: https://localhost:7180/swagger/index.html
+
+## 🧪 Storybook
+
+```bash
+cd myvibe.client
+npm run storybook
+```
