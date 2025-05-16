@@ -79,5 +79,9 @@ npm run storybook
 * [MIT License](LICENSE)
 * [License-checker summary](license-summary.txt)
 
+## 📃 Privacy-policy
+
+* [PRIVACY-POLICY.md](PRIVACY_POLICY.md)
+
 ## 😀 Author
 [Holtsev Kostiantyn] (https://github.com/HoltsevKostia)
