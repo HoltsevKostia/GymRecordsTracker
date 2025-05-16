@@ -13,13 +13,13 @@ const registerSchema = yup.object().shape({
 });
 
 /**
- * RegisterForm Ч форма реЇстрац≥њ нового користувача.
+ * RegisterForm Ч form for registering a new user.
  *
  * @component
- * @returns {JSX.Element} HTML-форма з пол€ми Username, Email та Password.
+ * @returns {JSX.Element} HTML form with Username, Email, and Password fields.
  *
  * @example
- * // ¬ал≥дна реЇстрац≥€
+ * // Valid registration
  * {
  *   username: "testuser",
  *   email: "test@example.com",
