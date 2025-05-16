@@ -1,6 +1,13 @@
 import api from './axiosInstance';
 import { AddUserDTO, LoginUserDTO, UpdateUserEmailDTO, UserDTO } from '../interfaces/userInterfaces';
 
+/**
+ * userApi — client for user-related operations via HTTP.
+ * Includes registration, login, logout, profile fetching, email update, and account deletion.
+ *
+ * @module userApi
+ */
+
 export const userApi = {
     async registerUser(user: AddUserDTO): Promise<UserDTO> {
         const { data } = await api.post("/user/register", user);

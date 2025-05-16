@@ -10,17 +10,18 @@ interface FormInputProps {
 }
 
 
+
 /**
- * Компонент обгортки над MUI TextField з інтеграцією через react-hook-form.
+ * Wrapper component around MUI TextField with react-hook-form integration.
  *
  * @component
- * @param {FormInputProps} props - Пропси компонента.
- * @param {string} props.name - Назва поля у формі.
- * @param {any} props.control - Контролер з useForm().
- * @param {string} props.label - Мітка поля.
- * @param {string} [props.type] - Тип поля (text, password, email тощо).
- * @param {any} props.errors - Об'єкт помилок з react-hook-form.
- * @returns {JSX.Element} Поле вводу з валідацією та відображенням помилки.
+ * @param {FormInputProps} props - Component props.
+ * @param {string} props.name - Field name in the form.
+ * @param {any} props.control - Controller from useForm().
+ * @param {string} props.label - Field label.
+ * @param {string} [props.type] - Field type (text, password, email, etc.).
+ * @param {any} props.errors - Error object from react-hook-form.
+ * @returns {JSX.Element} Input field with validation and error display.
  */
 
 export default function FormInput({ name, control, label, type = "text", errors }: FormInputProps) {

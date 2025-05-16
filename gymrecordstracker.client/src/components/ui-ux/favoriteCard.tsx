@@ -3,13 +3,14 @@ import { FavoriteDTO } from "../../interfaces/favoriteInterfaces";
 import { useFavoriteStore } from "../../stores/favoriteStore";
 
 /**
- * Компонент для відображення однієї картки з улюбленим контентом (мем, зображення або цитата).
+ * Component for displaying a single card of favorite content (meme, image, or quote).
  *
  * @component
- * @param {Object} props - Властивості компонента.
- * @param {FavoriteDTO} props.favorite - Об'єкт улюбленого контенту, який потрібно відобразити.
- * @returns {JSX.Element} Картка з контентом і кнопкою видалення.
+ * @param {Object} props - Component properties.
+ * @param {FavoriteDTO} props.favorite - Favorite content object to render.
+ * @returns {JSX.Element} Card with content and delete button.
  */
+
 export function FavoriteCard({ favorite }: { favorite: FavoriteDTO }) {
     const { deleteFavorite } = useFavoriteStore();
 

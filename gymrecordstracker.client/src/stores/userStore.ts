@@ -17,6 +17,14 @@ interface UserState {
     setError: (error: string) => void;
 }
 
+/**
+ * useUserStore — Zustand store for user authentication and profile management.
+ * Includes login, registration, email update, logout, and account deletion logic.
+ *
+ * @module useUserStore
+ */
+
+
 export const useUserStore = create<UserState>((set) => ({
     user: null,
     loading: true,

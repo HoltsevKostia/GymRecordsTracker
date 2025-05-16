@@ -2,6 +2,16 @@ import { useForm } from "react-hook-form";
 import { Meta, StoryFn } from "@storybook/react";
 import FormInput from "../components/ui-ux/formInput";
 
+/**
+ * Storybook stories for FormInput component.
+ *
+ * Includes variations for text, email, and password input fields.
+ * Integrates with react-hook-form for control and validation display.
+ *
+ * @module FormInput.stories
+ */
+
+
 export default {
     title: "Components/FormInput",
     component: FormInput,

@@ -4,10 +4,10 @@ import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 
 /**
- * AuthPage — сторінка авторизації/реєстрації.
- * Перемикає між LoginForm та RegisterForm в залежності від стану.
+ * AuthPage — page for user login and registration.
+ * Toggles between LoginForm and RegisterForm based on state.
  *
- * @returns {JSX.Element} Сторінка з формами входу та реєстрації.
+ * @returns {JSX.Element} Page with login and registration forms.
  */
 
 export default function AuthPage() {

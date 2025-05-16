@@ -3,6 +3,14 @@ import { FavoriteCard } from "../components/ui-ux/favoriteCard";
 import { FavoriteDTO } from "../interfaces/favoriteInterfaces";
 import { Box } from "@mui/material";
 
+/**
+ * Storybook stories for FavoriteCard component.
+ *
+ * Displays three variations: Meme, Image, and Quote based on the `type` property.
+ *
+ * @module FavoriteCard.stories
+ */
+
 export default {
     title: "Components/FavoriteCard",
     component: FavoriteCard,

@@ -15,10 +15,10 @@ const favoriteSchema = yup.object().shape({
 });
 
 /**
- * AddFavoriteForm Ч форма дл€ додаванн€ нового улюбленого елемента (мем, зображенн€, цитата).
+ * AddFavoriteForm Ч form for adding a new favorite item (meme, image, quote).
  *
  * @component
- * @returns {JSX.Element} HTML-форма з полем дл€ вм≥сту та типу.
+ * @returns {JSX.Element} HTML form with content and type fields.
  */
 
 export default function AddFavoriteForm() {

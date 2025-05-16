@@ -15,6 +15,13 @@ interface FavoriteState {
     setError: (error: string | null) => void;
 }
 
+/**
+ * useFavoriteStore — Zustand store for managing user's favorite content.
+ * Includes fetching, adding, deleting favorites, and basic loading/error state.
+ *
+ * @module useFavoriteStore
+ */
+
 export const useFavoriteStore = create<FavoriteState>((set, get) => ({
     favorites: [],
     loading: false,

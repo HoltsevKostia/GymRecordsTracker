@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Button, CircularProgress, TextField, Alert } from "@mui/material";
+import { Container, Box, Typography, Button, CircularProgress, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../stores/userStore";
 import { useState } from "react";
@@ -20,7 +20,7 @@ export default function ProfilePage() {
     };
 
     const [newEmail, setNewEmail] = useState(user?.email || "");
-    const [emailUpdated, setEmailUpdated] = useState(false);
+    const [, setEmailUpdated] = useState(false);
 
     const handleEmailUpdate = async () => {
         if (!user) return;

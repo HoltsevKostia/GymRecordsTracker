@@ -1,7 +1,3 @@
-import { useUserStore } from "../stores/userStore";
-import { LoginUserDTO, AddUserDTO } from "../interfaces/userInterfaces";
-import { useEffect } from "react";
-
 //export const useAuth = () => {
 //    const { user, loading, error, getUser, login, register, logout } = useUserStore();
 

@@ -11,13 +11,13 @@ const loginSchema = yup.object().shape({
 });
 
 /**
- * LoginForm Ч форма дл€ авторизац≥њ користувача.
+ * LoginForm Ч form for user authentication.
  *
  * @component
- * @returns {JSX.Element} HTML-форма з пол€ми Email та Password.
+ * @returns {JSX.Element} HTML form with Email and Password fields.
  *
  * @example
- * // ¬ал≥дний лог≥н
+ * // Valid login
  * {
  *   email: "test@example.com",
  *   password: "123456"

@@ -3,10 +3,10 @@ import { useUserStore } from "../stores/userStore";
 import { AppBar, Toolbar, Typography, Button, Container, Box } from "@mui/material";
 
 /**
- * Layout Ч головний макет сайту з хедером ≥ нав≥гац≥Їю.
- * ¬иводить children через <Outlet /> в межах контейнера.
+ * Layout Ч main site layout with header and navigation.
+ * Renders children via <Outlet /> inside a container.
  *
- * @returns {JSX.Element} Ѕазовий шаблон з AppBar ≥ внутр≥шн≥м контентом.
+ * @returns {JSX.Element} Base template with AppBar and main content.
  */
 
 export default function Layout() {

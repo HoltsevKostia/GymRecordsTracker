@@ -1,6 +1,14 @@
 import api from './axiosInstance';
 import { FavoriteDTO, AddFavoriteDTO } from '../interfaces/favoriteInterfaces';
 
+/**
+ * favoriteApi — client for managing user's favorite content via HTTP.
+ * Provides methods to fetch, add, and delete favorite items.
+ *
+ * @module favoriteApi
+ */
+
+
 export const favoriteApi = {
 
     async getAllUsersFavorites(): Promise<FavoriteDTO[]> {
