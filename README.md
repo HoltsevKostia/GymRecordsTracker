@@ -62,6 +62,10 @@ npm run dev
 
 Swagger доступний після запуску за адресою: https://localhost:7180/swagger/index.html
 
+## ✒️ Frontend Documentation
+
+Доступна після запуску за адресою: https://localhost:5173/docs/index.html
+
 ## 🧪 Storybook
 
 ```bash
@@ -74,3 +78,6 @@ npm run storybook
 Цей проєкт використовує MIT License. Детальніше:
 * [MIT License](LICENSE)
 * [License-checker summary](license-summary.txt)
+
+## 😀 Author
+[Holtsev Kostiantyn] (https://github.com/HoltsevKostia)
